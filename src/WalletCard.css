@@ -1,0 +1,45 @@
+.walletCard {
+  margin: 10%;
+  border: 10px solid #0c0c0b;
+  /* border-radius: 50px; */
+  background-color: #f8f2d6;
+  width: 420px;
+}
+@media (max-width: 420px) { .walletCard{width:320px;}}
+.broButton {
+  background-color: #e0b365 !important;
+  color: black !important;
+  margin: 1rem !important;
+  padding: 8px;
+  border-radius: 20px;
+}
+.walletBros {
+  margin-top: 15px;
+  margin-left: 15px;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+}
+.iconBro {
+  width: 28px;
+  height: 28px;
+  margin: 7px;
+}
+.header {
+  margin: 15px;
+}
+.github {
+  color: #f5f1ed;
+}
+.connecion {
+  margin-top: 1px;
+  margin-right: 2px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.headerImg {
+  height: 38px;
+  width: 38px;
+}
