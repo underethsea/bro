@@ -33,7 +33,7 @@ const Bro = () => {
       account,
       promotionId,
       epochIds
-    );
+    ,{gasLimit: 400000});
     return broBalance.toString() / 1e18;
   };
 
