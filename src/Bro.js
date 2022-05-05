@@ -23,6 +23,7 @@ const Bro = () => {
   const [twabContract, setTwabContract] = useState(null);
   const [chainId, setChainId] = useState(null);
   const [walletBros, setWalletBros] = useState(null);
+  const [transHash, setTransHash] = useState(null)
 
   // const [userBalance, setUserBalance] = useState(null);
   // const [signer, setSigner] = useState(null);
@@ -122,7 +123,7 @@ const Bro = () => {
       twabContract.claimRewards(defaultAccount, 12, [0]).then((ok) => {
         console.log(ok);
         getWalletBros();
-        setErrorMessage('<a href=\'https://polygonscan.com/tx/' + ok.hash + '\'>View claim on PolygonScan</a>'); 
+        setTransHash(ok.hash); 
       });
     }
   };
@@ -177,11 +178,11 @@ const Bro = () => {
 
                   {/* <div>Chain {chainId}</div> */}
                 </h3>
-              ) : (
+              ) : !walletBros ? (
                 "no BT claimable, BRO"
-              )}
+              ) : ''}
               {!bros && walletBros ? (walletBros + ' BT') : ''}
-              
+              {transHash && <a href={"https://polygonscan.com/tx/" + {transHash}}>View claim on PolygonScan</a>}
             </div>
           )}
           {errorMessage}
