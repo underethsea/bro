@@ -9,8 +9,8 @@ import discord from "./discord.png";
 import { decentralBro } from "./randoBro.js";
 import { polygonTWABRewardsAddress, polygonTWABRewardsAbi } from "./constaBro";
 
-const discordUrl = "";
-const gitHubUrl = "";
+const discordUrl = "https://soon.tm/hahahahaha";
+const gitHubUrl = "https://github.com/underethsea/bro";
 
 const promotionId = 12;
 const epochIds = [0];
@@ -106,9 +106,11 @@ const Bro = () => {
     updateConnection();
   };
   // listen for account changes
-  if (!window.ethereum) {console.log("no metamask")}else{
-  window.ethereum.on("accountsChanged", accountChangedHandler);
-  window.ethereum.on("chainChanged", chainChangedHandler);
+  if (!window.ethereum) {
+    console.log("no metamask");
+  } else {
+    window.ethereum.on("accountsChanged", accountChangedHandler);
+    window.ethereum.on("chainChanged", chainChangedHandler);
   }
 
   const claimBros = async () => {
@@ -117,9 +119,10 @@ const Bro = () => {
       return;
     } else {
       console.log(twabContract);
-      twabContract
-        .claimRewards(defaultAccount, 12, [0])
-        .then((ok) => {console.log(ok);getWalletBros()});
+      twabContract.claimRewards(defaultAccount, 12, [0]).then((ok) => {
+        console.log(ok);
+        getWalletBros();
+      });
     }
   };
 
@@ -134,7 +137,9 @@ const Bro = () => {
 
   return (
     <div>
-      <div className="walletBros">{walletBros && walletBros!==0 ? walletBros : ""}</div>
+      <div className="walletBros">
+        {walletBros && walletBros !== 0 ? walletBros : ""}
+      </div>
       <div className="connecion">
         <button className="broButton" onClick={connectWalletHandler}>
           {connButtonText}
@@ -174,6 +179,8 @@ const Bro = () => {
               ) : (
                 "no BT claimable, BRO"
               )}
+              {!bros && walletBros ? (walletBros + ' BT') : ''}
+              
             </div>
           )}
           {errorMessage}
