@@ -122,6 +122,7 @@ const Bro = () => {
       twabContract.claimRewards(defaultAccount, 12, [0]).then((ok) => {
         console.log(ok);
         getWalletBros();
+        setErrorMessage('<a href=\'https://polygonscan.com/tx/' + ok.hash + '\'>View claim on PolygonScan</a>'); 
       });
     }
   };
